@@ -6,9 +6,7 @@ This package contains API integration modules for external services.
 
 from .hubspot_client import AtomustamHubSpotClient, create_hubspot_client, HubSpotConfig
 from .openai_client import AtomustamOpenAIClient, create_openai_client, OpenAIConfig
-
-# Will be added in future steps
-# from .highergov_client import AtomustamHigherGovClient, create_highergov_client
+from .highergov_client import AtomustamHigherGovClient, create_highergov_client, HigherGovConfig
 
 __all__ = [
     # HubSpot Integration
@@ -21,5 +19,8 @@ __all__ = [
     'create_openai_client',
     'OpenAIConfig',
     
-    # Future integrations will be added here
+    # HigherGov Integration
+    'AtomustamHigherGovClient',
+    'create_highergov_client',
+    'HigherGovConfig',
 ]

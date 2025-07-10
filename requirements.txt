@@ -1,0 +1,58 @@
+# Core Python packages
+requests==2.31.0
+pandas==2.0.3
+numpy==1.24.3
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# API Integrations
+hubspot-api-client==7.0.0
+openai==1.6.1
+
+# Web Scraping & Research
+beautifulsoup4==4.12.2
+selenium==4.15.2
+requests-html==0.10.0
+
+# Data Processing
+jsonlines==3.1.0
+fuzzywuzzy==0.18.0
+python-levenshtein==0.21.1
+
+# Logging & Monitoring
+loguru==0.7.2
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Jupyter & Analysis
+jupyter==1.0.0
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.17.0
+
+# Utilities
+tqdm==4.66.1
+click==8.1.7
+colorama==0.4.6
+tabulate==0.9.0
+
+# HTTP & Async
+aiohttp==3.8.6
+asyncio==3.4.3
+
+# Date/Time handling
+python-dateutil==2.8.2
+
+# Configuration
+configargparse==1.7
+
+# Data validation
+cerberus==1.3.5
+
+# Rate limiting
+ratelimit==2.2.1
+
+# Environment management
+python-decouple==3.8

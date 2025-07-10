@@ -1,0 +1,238 @@
+{
+  "scoring_algorithm": {
+    "version": "1.0",
+    "description": "Atomus TAM Research scoring weights for defense contractor assessment",
+    "last_updated": "2025-01-15T10:00:00Z"
+  },
+  "component_weights": {
+    "defense_contract_score": 0.35,
+    "technology_relevance": 0.30,
+    "compliance_indicators": 0.25,
+    "firmographics": 0.10
+  },
+  "keyword_scoring": {
+    "primary_keywords": {
+      "points": 10,
+      "keywords": [
+        "hypersonic",
+        "nuclear",
+        "propulsion",
+        "defense manufacturing",
+        "engineering services"
+      ]
+    },
+    "secondary_keywords": {
+      "points": 7,
+      "keywords": [
+        "drone",
+        "UAS",
+        "UAV",
+        "UXS",
+        "UUV"
+      ]
+    },
+    "specialized_keywords": {
+      "points": 10,
+      "keywords": [
+        "RF",
+        "EW",
+        "Electronic Warfare"
+      ]
+    },
+    "compliance_keywords": {
+      "high_priority": {
+        "points": 15,
+        "keywords": [
+          "NIST 800-171",
+          "CMMC",
+          "Cybersecurity Maturity Model Certification",
+          "CUI",
+          "DFARS",
+          "FedRAMP",
+          "FISMA",
+          "DoD contractor",
+          "Defense contractor"
+        ]
+      },
+      "medium_priority": {
+        "points": 10,
+        "keywords": [
+          "cybersecurity",
+          "information security",
+          "data protection",
+          "security compliance",
+          "risk management",
+          "security framework",
+          "security assessment"
+        ]
+      }
+    },
+    "technology_keywords": {
+      "cloud_infrastructure": {
+        "points": 8,
+        "keywords": [
+          "AWS",
+          "Azure",
+          "Google Cloud",
+          "cloud migration",
+          "cloud security",
+          "hybrid cloud"
+        ]
+      },
+      "manufacturing_tech": {
+        "points": 12,
+        "keywords": [
+          "IoT",
+          "Industrial IoT",
+          "OT security",
+          "SCADA",
+          "manufacturing execution",
+          "quality management systems"
+        ]
+      },
+      "software_development": {
+        "points": 6,
+        "keywords": [
+          "DevSecOps",
+          "CI/CD",
+          "software development",
+          "application security",
+          "secure coding"
+        ]
+      }
+    }
+  },
+  "firmographic_scoring": {
+    "employee_count_ranges": [
+      {
+        "min": 50,
+        "max": 200,
+        "points": 5
+      },
+      {
+        "min": 201,
+        "max": 1000,
+        "points": 10
+      },
+      {
+        "min": 1001,
+        "max": 5000,
+        "points": 8
+      },
+      {
+        "min": 5001,
+        "max": 10000,
+        "points": 5
+      }
+    ],
+    "revenue_ranges": [
+      {
+        "min": 10000000,
+        "max": 50000000,
+        "points": 6
+      },
+      {
+        "min": 50000001,
+        "max": 500000000,
+        "points": 12
+      },
+      {
+        "min": 500000001,
+        "max": 2000000000,
+        "points": 8
+      }
+    ],
+    "industry_naics_codes": {
+      "336411": {
+        "description": "Aircraft Manufacturing",
+        "points": 15
+      },
+      "336412": {
+        "description": "Aircraft Engine and Engine Parts Manufacturing", 
+        "points": 15
+      },
+      "336413": {
+        "description": "Other Aircraft Parts and Auxiliary Equipment Manufacturing",
+        "points": 12
+      },
+      "336414": {
+        "description": "Guided Missile and Space Vehicle Manufacturing",
+        "points": 10
+      },
+      "336415": {
+        "description": "Guided Missile and Space Vehicle Propulsion Unit Manufacturing",
+        "points": 10
+      },
+      "336419": {
+        "description": "Other Guided Missile and Space Vehicle Parts Manufacturing",
+        "points": 8
+      },
+      "541330": {
+        "description": "Engineering Services",
+        "points": 12
+      },
+      "541511": {
+        "description": "Custom Computer Programming Services",
+        "points": 10
+      },
+      "541512": {
+        "description": "Computer Systems Design Services",
+        "points": 8
+      },
+      "541618": {
+        "description": "Other Management Consulting Services",
+        "points": 6
+      }
+    }
+  },
+  "tier_classification": {
+    "tier_1": {
+      "min_score": 90,
+      "max_score": 100,
+      "priority": "Immediate outreach priority",
+      "description": "Perfect fit companies with highest conversion potential"
+    },
+    "tier_2": {
+      "min_score": 75,
+      "max_score": 89,
+      "priority": "High-value prospects",
+      "description": "Strong fit companies requiring focused sales effort"
+    },
+    "tier_3": {
+      "min_score": 60,
+      "max_score": 74,
+      "priority": "Qualified prospects", 
+      "description": "Good fit companies for nurturing and development"
+    },
+    "tier_4": {
+      "min_score": 45,
+      "max_score": 59,
+      "priority": "Nurture candidates",
+      "description": "Potential future opportunities requiring long-term development"
+    },
+    "excluded": {
+      "min_score": 0,
+      "max_score": 44,
+      "priority": "Exclude from current campaign",
+      "description": "Low-fit companies not suitable for current GTM focus"
+    }
+  },
+  "algorithm_parameters": {
+    "max_possible_score": 100,
+    "min_threshold": 0,
+    "bonus_multiplier": 1.2,
+    "keyword_matching": {
+      "case_sensitive": false,
+      "fuzzy_matching": true,
+      "fuzzy_threshold": 0.8,
+      "word_boundaries": true,
+      "stemming": true
+    },
+    "validation_rules": {
+      "minimum_data_points": 3,
+      "exclude_incomplete_profiles": false,
+      "require_website": true,
+      "require_industry_classification": true
+    }
+  }
+}

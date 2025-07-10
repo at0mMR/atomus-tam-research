@@ -1,0 +1,239 @@
+# Atomus TAM Research - Scoring Configuration
+# This file contains all scoring weights, keyword lists, and classification thresholds
+# Modify these values to adjust the scoring algorithm behavior
+
+# WEIGHTED SCORING SYSTEM
+# Total Score = (Defense Contract Score × 0.35) + (Technology Relevance × 0.30) + (Compliance Indicators × 0.25) + (Firmographics × 0.10)
+
+scoring_weights:
+  defense_contract_score: 0.35      # Weight for defense contract history and current contracts
+  technology_relevance: 0.30        # Weight for technology stack relevance to NIST/CMMC
+  compliance_indicators: 0.25       # Weight for existing compliance posture and indicators
+  firmographics: 0.10              # Weight for company size, revenue, employee count
+
+# KEYWORD SCORING SYSTEM
+# Keywords are categorized by importance and assigned point values
+
+keywords:
+  primary:
+    points: 10
+    terms:
+      - "hypersonic"
+      - "nuclear"
+      - "propulsion"
+      - "defense manufacturing"
+      - "engineering services"
+  
+  secondary:
+    points: 7
+    terms:
+      - "drone"
+      - "UAS"                        # Unmanned Aircraft Systems
+      - "UAV"                        # Unmanned Aerial Vehicle
+      - "UXS"                        # Unmanned Systems
+      - "UUV"                        # Unmanned Underwater Vehicle
+  
+  specialized:
+    points: 10
+    terms:
+      - "RF"                         # Radio Frequency
+      - "EW"                         # Electronic Warfare
+      - "Electronic Warfare"
+
+# COMPLIANCE KEYWORDS
+# Keywords that indicate potential need for NIST 800-171 and CMMC compliance
+
+compliance_keywords:
+  high_priority:
+    points: 15
+    terms:
+      - "NIST 800-171"
+      - "CMMC"
+      - "Cybersecurity Maturity Model Certification"
+      - "CUI"                        # Controlled Unclassified Information
+      - "DFARS"                      # Defense Federal Acquisition Regulation Supplement
+      - "FedRAMP"
+      - "FISMA"
+      - "DoD contractor"
+      - "Defense contractor"
+  
+  medium_priority:
+    points: 10
+    terms:
+      - "cybersecurity"
+      - "information security"
+      - "data protection"
+      - "security compliance"
+      - "risk management"
+      - "security framework"
+      - "security assessment"
+
+# TECHNOLOGY RELEVANCE KEYWORDS
+# Keywords that indicate technology stacks relevant to cybersecurity compliance
+
+technology_keywords:
+  cloud_infrastructure:
+    points: 8
+    terms:
+      - "AWS"
+      - "Azure"
+      - "Google Cloud"
+      - "cloud migration"
+      - "cloud security"
+      - "hybrid cloud"
+  
+  manufacturing_tech:
+    points: 12
+    terms:
+      - "IoT"
+      - "Industrial IoT"
+      - "OT security"                # Operational Technology
+      - "SCADA"
+      - "manufacturing execution"
+      - "quality management systems"
+  
+  software_development:
+    points: 6
+    terms:
+      - "DevSecOps"
+      - "CI/CD"
+      - "software development"
+      - "application security"
+      - "secure coding"
+
+# FIRMOGRAPHIC SCORING
+# Company characteristics that indicate good fit for Atomus services
+
+firmographics:
+  employee_count:
+    ranges:
+      - min: 50
+        max: 200
+        points: 5
+      - min: 201
+        max: 1000
+        points: 10
+      - min: 1001
+        max: 5000
+        points: 8
+      - min: 5001
+        max: 10000
+        points: 5
+  
+  revenue:
+    ranges:
+      - min: 10000000      # $10M
+        max: 50000000      # $50M
+        points: 6
+      - min: 50000001      # $50M+
+        max: 500000000     # $500M
+        points: 12
+      - min: 500000001     # $500M+
+        max: 2000000000    # $2B
+        points: 8
+  
+  industry_codes:
+    NAICS:
+      "336411": 15         # Aircraft Manufacturing
+      "336412": 15         # Aircraft Engine and Engine Parts Manufacturing
+      "336413": 12         # Other Aircraft Parts and Auxiliary Equipment Manufacturing
+      "336414": 10         # Guided Missile and Space Vehicle Manufacturing
+      "336415": 10         # Guided Missile and Space Vehicle Propulsion Unit Manufacturing
+      "336419": 8          # Other Guided Missile and Space Vehicle Parts Manufacturing
+      "541330": 12         # Engineering Services
+      "541511": 10         # Custom Computer Programming Services
+      "541512": 8          # Computer Systems Design Services
+      "541618": 6          # Other Management Consulting Services
+
+# TIER CLASSIFICATION SYSTEM
+# Based on total calculated score, companies are classified into tiers
+
+tier_classification:
+  tier_1:
+    min_score: 90
+    max_score: 100
+    priority: "Immediate outreach priority"
+    description: "Perfect fit companies with highest conversion potential"
+  
+  tier_2:
+    min_score: 75
+    max_score: 89
+    priority: "High-value prospects"
+    description: "Strong fit companies requiring focused sales effort"
+  
+  tier_3:
+    min_score: 60
+    max_score: 74
+    priority: "Qualified prospects"
+    description: "Good fit companies for nurturing and development"
+  
+  tier_4:
+    min_score: 45
+    max_score: 59
+    priority: "Nurture candidates"
+    description: "Potential future opportunities requiring long-term development"
+  
+  exclude:
+    min_score: 0
+    max_score: 44
+    priority: "Exclude from current campaign"
+    description: "Low-fit companies not suitable for current GTM focus"
+
+# RESEARCH DEPTH CONFIGURATION
+# Controls how deep the research goes for each tier
+
+research_depth:
+  tier_1:
+    basic_research: true
+    deep_research: true
+    competitive_analysis: true
+    contact_enrichment: true
+    technology_stack_analysis: true
+    contract_history_analysis: true
+  
+  tier_2:
+    basic_research: true
+    deep_research: true
+    competitive_analysis: false
+    contact_enrichment: true
+    technology_stack_analysis: true
+    contract_history_analysis: true
+  
+  tier_3:
+    basic_research: true
+    deep_research: false
+    competitive_analysis: false
+    contact_enrichment: true
+    technology_stack_analysis: false
+    contract_history_analysis: false
+  
+  tier_4:
+    basic_research: true
+    deep_research: false
+    competitive_analysis: false
+    contact_enrichment: false
+    technology_stack_analysis: false
+    contract_history_analysis: false
+
+# SCORING ALGORITHM PARAMETERS
+# Fine-tuning parameters for the scoring algorithm
+
+algorithm_parameters:
+  keyword_matching:
+    case_sensitive: false
+    fuzzy_matching: true
+    fuzzy_threshold: 0.8
+    word_boundaries: true
+    stemming: true
+  
+  score_normalization:
+    max_possible_score: 100
+    min_threshold: 0
+    apply_bonus_multiplier: true
+    bonus_multiplier: 1.2          # Applied when multiple high-value keywords found
+  
+  validation_rules:
+    minimum_data_points: 3          # Minimum data points required for scoring
+    exclude_incomplete_profiles: false
+    require_website: true
+    require_industry_classification: true

@@ -1,0 +1,468 @@
+# Atomus TAM Research - Research Prompts Configuration
+# This file contains all research prompt templates used by the OpenAI integration
+# Modify these prompts to adjust research depth and focus areas
+# Designed for easy modification and scaling to massive prompt parameters
+
+# BASIC RESEARCH PROMPTS
+# High-volume research templates for initial company assessment
+
+basic_research:
+  company_overview:
+    template: |
+      Research the company {company_name} and provide a comprehensive overview focusing on:
+      
+      1. BUSINESS FUNDAMENTALS:
+         - Primary business model and revenue streams
+         - Target markets and customer segments
+         - Key products and services offered
+         - Recent business developments or news
+      
+      2. DEFENSE CONTRACTOR INDICATORS:
+         - Current or historical government contracts
+         - Defense industry partnerships
+         - Military/aerospace involvement
+         - Security clearance requirements
+      
+      3. TECHNOLOGY STACK ASSESSMENT:
+         - Primary technology platforms used
+         - IT infrastructure approach (cloud, on-premise, hybrid)
+         - Manufacturing or operational technology systems
+         - Software development practices
+      
+      4. COMPLIANCE POSTURE:
+         - Existing cybersecurity certifications
+         - Regulatory compliance requirements
+         - Data protection measures
+         - Security-related press releases or announcements
+      
+      Provide findings in JSON format with clear categorization and confidence scores (1-10).
+    
+    max_tokens: 2000
+    temperature: 0.3
+    focus_areas:
+      - defense_contracts
+      - technology_stack
+      - compliance_indicators
+      - business_fundamentals
+
+  quick_assessment:
+    template: |
+      Perform a rapid assessment of {company_name} for cybersecurity compliance potential:
+      
+      PRIORITY INDICATORS:
+      - Defense contractor status (current/historical)
+      - NIST 800-171 or CMMC compliance needs
+      - Government contract involvement
+      - Technology manufacturing capabilities
+      - Cybersecurity maturity level
+      
+      SPECIFIC KEYWORDS TO IDENTIFY:
+      {keyword_list}
+      
+      OUTPUT FORMAT:
+      - Compliance Risk Score (1-10)
+      - Defense Contractor Likelihood (1-10)
+      - Technology Relevance Score (1-10)
+      - Key Findings (bullet points)
+      - Recommended Next Actions
+    
+    max_tokens: 1500
+    temperature: 0.2
+    focus_areas:
+      - compliance_risk
+      - defense_contractor_status
+      - technology_relevance
+
+# DEEP RESEARCH PROMPTS
+# Detailed analysis templates for high-value prospects
+
+deep_research:
+  comprehensive_analysis:
+    template: |
+      Conduct an in-depth analysis of {company_name} as a potential customer for NIST 800-171 and CMMC compliance services:
+      
+      SECTION 1: BUSINESS INTELLIGENCE
+      - Leadership team and key decision makers
+      - Financial performance and stability
+      - Growth trajectory and expansion plans
+      - Market position and competitive landscape
+      - Recent mergers, acquisitions, or partnerships
+      
+      SECTION 2: DEFENSE CONTRACTING PROFILE
+      - Current active government contracts (SAM.gov, USAspending.gov)
+      - Historical contract performance
+      - Prime vs. subcontractor relationships
+      - Contract values and duration
+      - CAGE codes and DUNS numbers
+      
+      SECTION 3: TECHNOLOGY & SECURITY POSTURE
+      - Current cybersecurity infrastructure
+      - Existing compliance certifications (ISO 27001, SOC 2, etc.)
+      - Technology partnerships and vendors
+      - Cloud adoption and data handling practices
+      - Previous security incidents or breaches
+      
+      SECTION 4: COMPLIANCE READINESS ASSESSMENT
+      - Current NIST 800-171 compliance status
+      - CMMC certification level (if any)
+      - Regulatory requirements and obligations
+      - Internal security policies and procedures
+      - Compliance gaps and vulnerabilities
+      
+      SECTION 5: DECISION MAKER INTELLIGENCE
+      - IT leadership team (CIO, CISO, IT Directors)
+      - Compliance officers and risk management
+      - Procurement and vendor management contacts
+      - Recent personnel changes in security roles
+      
+      SECTION 6: SALES INTELLIGENCE
+      - Budget approval process and timing
+      - Current security vendors and contracts
+      - Pain points and compliance challenges
+      - Competitive vendor landscape
+      - Optimal outreach strategy and messaging
+      
+      Provide detailed analysis with specific recommendations for engagement.
+    
+    max_tokens: 4000
+    temperature: 0.3
+    focus_areas:
+      - business_intelligence
+      - defense_contracting
+      - technology_security
+      - compliance_readiness
+      - decision_makers
+      - sales_intelligence
+
+  competitive_analysis:
+    template: |
+      Analyze {company_name} in the context of the competitive landscape for NIST 800-171/CMMC compliance:
+      
+      COMPETITIVE POSITIONING:
+      - Direct competitors in their market segment
+      - Competitive advantages and differentiators
+      - Market share and industry standing
+      - Competitive threats and opportunities
+      
+      COMPLIANCE BENCHMARK:
+      - How competitors approach NIST 800-171 compliance
+      - Industry-specific compliance requirements
+      - Best practices in their sector
+      - Compliance vendor preferences in the industry
+      
+      STRATEGIC INSIGHTS:
+      - Market trends affecting compliance needs
+      - Regulatory changes impacting the industry
+      - Technology shifts requiring new security approaches
+      - Opportunities for competitive differentiation through compliance
+      
+      Provide actionable insights for positioning Atomus services.
+    
+    max_tokens: 2500
+    temperature: 0.4
+    focus_areas:
+      - competitive_landscape
+      - compliance_benchmarking
+      - strategic_positioning
+
+# SPECIALIZED RESEARCH PROMPTS
+# Targeted analysis for specific research objectives
+
+specialized_research:
+  technology_stack_analysis:
+    template: |
+      Analyze the technology infrastructure of {company_name} with focus on cybersecurity compliance implications:
+      
+      INFRASTRUCTURE ASSESSMENT:
+      - Cloud service providers and adoption level
+      - On-premise systems and legacy technology
+      - Network architecture and security controls
+      - Data storage and processing locations
+      - Third-party integrations and vendor dependencies
+      
+      SECURITY CONTROL ANALYSIS:
+      - Access control systems and identity management
+      - Data encryption and protection measures
+      - Network segmentation and monitoring
+      - Incident response and logging capabilities
+      - Backup and disaster recovery systems
+      
+      COMPLIANCE IMPLICATIONS:
+      - NIST 800-171 control implementation gaps
+      - CMMC compliance readiness level
+      - Required security improvements
+      - Technology modernization needs
+      - Estimated compliance implementation timeline
+      
+      Provide specific technical recommendations and implementation roadmap.
+    
+    max_tokens: 3000
+    temperature: 0.3
+    focus_areas:
+      - infrastructure_assessment
+      - security_controls
+      - compliance_gaps
+      - implementation_roadmap
+
+  contract_history_analysis:
+    template: |
+      Research the government contracting history of {company_name} to assess NIST 800-171/CMMC compliance requirements:
+      
+      CONTRACT PORTFOLIO ANALYSIS:
+      - Active federal contracts and their CUI handling requirements
+      - Historical contract performance and compliance
+      - Contract types and security requirements
+      - Subcontracting relationships and flow-down requirements
+      - Contract renewals and upcoming opportunities
+      
+      COMPLIANCE REQUIREMENTS MAPPING:
+      - DFARS 252.204-7012 applicability
+      - CUI handling and processing requirements
+      - Required CMMC certification levels
+      - Timeline for compliance implementation
+      - Penalties for non-compliance
+      
+      BUSINESS IMPACT ASSESSMENT:
+      - Revenue at risk from non-compliance
+      - New contract opportunities requiring compliance
+      - Competitive advantage from early compliance
+      - Cost of compliance vs. cost of non-compliance
+      
+      Provide specific compliance requirements and business justification.
+    
+    max_tokens: 2800
+    temperature: 0.3
+    focus_areas:
+      - contract_portfolio
+      - compliance_requirements
+      - business_impact
+      - risk_assessment
+
+  contact_enrichment:
+    template: |
+      Identify and research key decision makers at {company_name} for NIST 800-171/CMMC compliance sales outreach:
+      
+      PRIMARY DECISION MAKERS:
+      - Chief Information Officer (CIO)
+      - Chief Information Security Officer (CISO)
+      - IT Director/Manager
+      - Compliance Officer
+      - Risk Management Director
+      
+      SECONDARY STAKEHOLDERS:
+      - Chief Financial Officer (CFO)
+      - Chief Operating Officer (COO)
+      - VP of Operations
+      - Procurement/Vendor Management
+      - Legal/General Counsel
+      
+      CONTACT INTELLIGENCE:
+      - Professional background and experience
+      - Previous roles and career trajectory
+      - Educational background and certifications
+      - Professional associations and memberships
+      - Recent presentations, articles, or speaking engagements
+      - Social media presence and engagement topics
+      
+      ENGAGEMENT STRATEGY:
+      - Preferred communication channels
+      - Optimal outreach timing and frequency
+      - Personalized messaging approach
+      - Common connections and referral paths
+      - Industry events and networking opportunities
+      
+      Provide contact details and personalized outreach recommendations.
+    
+    max_tokens: 2500
+    temperature: 0.4
+    focus_areas:
+      - decision_makers
+      - contact_intelligence
+      - engagement_strategy
+      - outreach_optimization
+
+# PROMPT MODIFIERS
+# Additional parameters to customize research focus and depth
+
+prompt_modifiers:
+  industry_specific:
+    aerospace_defense:
+      additional_context: |
+        Focus on aerospace and defense industry specific requirements:
+        - ITAR compliance and export control regulations
+        - Defense contractor security requirements
+        - Aerospace manufacturing quality standards
+        - Supply chain security requirements
+    
+    manufacturing:
+      additional_context: |
+        Focus on manufacturing industry specific requirements:
+        - OT/IT convergence and security challenges
+        - Industrial IoT and connected manufacturing
+        - Quality management system integration
+        - Supply chain and vendor management
+    
+    technology_services:
+      additional_context: |
+        Focus on technology services industry specific requirements:
+        - Software development security practices
+        - Cloud service provider responsibilities
+        - Client data protection requirements
+        - DevSecOps implementation needs
+
+  urgency_levels:
+    high_priority:
+      additional_instructions: |
+        URGENT RESEARCH REQUIRED:
+        - Prioritize immediate actionable insights
+        - Focus on near-term compliance deadlines
+        - Identify immediate outreach opportunities
+        - Provide accelerated implementation timeline
+    
+    standard:
+      additional_instructions: |
+        STANDARD RESEARCH DEPTH:
+        - Provide comprehensive but balanced analysis
+        - Include both short-term and long-term opportunities
+        - Balance depth with research efficiency
+    
+    low_priority:
+      additional_instructions: |
+        BASIC RESEARCH SUFFICIENT:
+        - Focus on high-level assessment only
+        - Prioritize efficiency over depth
+        - Identify key qualification criteria
+        - Provide go/no-go recommendation
+
+# RESEARCH WORKFLOW CONFIGURATION
+# Templates for different research workflows and automation
+
+workflow_templates:
+  batch_processing:
+    template: |
+      Process the following companies for basic qualification assessment:
+      
+      COMPANIES: {company_list}
+      
+      For each company, provide:
+      1. Defense contractor likelihood (1-10)
+      2. NIST 800-171 compliance need (1-10)
+      3. Technology relevance score (1-10)
+      4. Key qualifying factors
+      5. Recommended next action
+      
+      Output in structured JSON format for automated processing.
+    
+    max_tokens: 3000
+    temperature: 0.2
+    batch_size: 10
+
+  progressive_research:
+    template: |
+      Based on the initial assessment of {company_name}, conduct {research_level} research:
+      
+      PREVIOUS FINDINGS:
+      {previous_research_summary}
+      
+      AREAS FOR DEEPER INVESTIGATION:
+      {focus_areas_list}
+      
+      SPECIFIC QUESTIONS TO ANSWER:
+      {research_questions}
+      
+      Provide detailed findings that build upon previous research.
+    
+    max_tokens: 3500
+    temperature: 0.3
+
+# RESPONSE FORMATTING
+# Templates for structuring research outputs
+
+response_formats:
+  structured_json:
+    template: |
+      {
+        "company_name": "{company_name}",
+        "research_date": "{current_date}",
+        "research_type": "{research_type}",
+        "confidence_level": "{confidence_score}",
+        "findings": {
+          "defense_contractor_score": "{score}",
+          "compliance_need_score": "{score}",
+          "technology_relevance_score": "{score}",
+          "key_findings": ["{finding1}", "{finding2}", "{finding3}"],
+          "decision_makers": [
+            {
+              "name": "{name}",
+              "title": "{title}",
+              "email": "{email}",
+              "linkedin": "{linkedin_url}"
+            }
+          ],
+          "next_actions": ["{action1}", "{action2}", "{action3}"],
+          "research_sources": ["{source1}", "{source2}", "{source3}"]
+        }
+      }
+
+  executive_summary:
+    template: |
+      EXECUTIVE SUMMARY - {company_name}
+      
+      QUALIFICATION SCORE: {total_score}/100
+      TIER CLASSIFICATION: {tier_level}
+      
+      KEY FINDINGS:
+      • {key_finding_1}
+      • {key_finding_2}
+      • {key_finding_3}
+      
+      DECISION MAKERS:
+      • {decision_maker_1}
+      • {decision_maker_2}
+      
+      RECOMMENDED ACTIONS:
+      1. {recommended_action_1}
+      2. {recommended_action_2}
+      
+      NEXT STEPS:
+      {next_steps}
+
+# QUALITY ASSURANCE
+# Prompts for validating and improving research quality
+
+quality_assurance:
+  fact_checking:
+    template: |
+      Validate the accuracy of the following research findings for {company_name}:
+      
+      CLAIMS TO VERIFY:
+      {research_claims}
+      
+      VALIDATION CRITERIA:
+      - Source credibility and recency
+      - Factual accuracy and consistency
+      - Completeness of information
+      - Potential bias or inaccuracy
+      
+      Provide confidence scores and identify any questionable claims.
+    
+    max_tokens: 2000
+    temperature: 0.2
+
+  completeness_check:
+    template: |
+      Assess the completeness of research findings for {company_name}:
+      
+      CURRENT FINDINGS:
+      {current_research}
+      
+      REQUIRED INFORMATION:
+      {required_data_points}
+      
+      GAPS IDENTIFIED:
+      {information_gaps}
+      
+      Provide recommendations for additional research to fill gaps.
+    
+    max_tokens: 1500
+    temperature: 0.3
